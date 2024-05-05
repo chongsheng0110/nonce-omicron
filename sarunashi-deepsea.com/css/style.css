@@ -89,7 +89,7 @@ strong {font-weight: 500;}
 ---------------------------------------------------------------------------*/
 a {
 	color: #fff;	/*文字色*/
-	transition: 0.3s;	/*hoverまでにかける時間。0.3秒。*/
+	transition: 0.3s;	/*hoverまでにかける時間*/
 }
 
 /*マウスオン時*/
@@ -343,7 +343,7 @@ section {
 
 /*section2の設定*/
 #section2 {
-	background-color: rgba(50, 84, 115, 0.6);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	background-color: rgba(50, 84, 115, 0.6);
 	color: #fff;	/*文字色*/
 }
 #section2::before {
@@ -352,7 +352,7 @@ section {
 
 /*section3の設定*/
 #section3 {
-	background-color: rgba(52, 99, 92, 0.6);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	background-color: rgba(52, 99, 92, 0.6);
 	color: #fff;	/*文字色*/
 }
 #section3::before {
@@ -361,10 +361,11 @@ section {
 
 /*section4の設定*/
 #section4 {
+	background-color: rgba(63, 54, 63, 0.6);
 	color: #fff;	/*文字色*/
 }
 #section4::before {
-	background: #434046;	/*section4だけは背景画像ではなく、単に背景色だけ指定しました。*/
+	background: url('../images/section4.jpg') no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 
 /*背景色を入れない場合（画像だけを表示したい場合）*/
@@ -422,7 +423,7 @@ footer a {color: inherit;text-decoration: none;}
 /*listブロックを囲む外側のボックス*/
 .list-grid-trimming {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);	/*ここの「4」の数字が横に並べる数です。3列がいいなら(3, 1fr)です。*/
+	grid-template-columns: repeat(4, 1fr);
 	gap: 1rem;	/*マージン的な数値。サムネイル間を１文字分あけます。*/
 }
 
