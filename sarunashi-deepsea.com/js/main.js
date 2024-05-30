@@ -1,3 +1,66 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingAnimation = document.getElementById('loading-animation');
+    const lastVisit = localStorage.getItem('lastVisit');
+    const now = new Date().getTime();
+    const oneHour = 60 * 60 * 1000;
+
+    if(loadingAnimation) {
+        if (!lastVisit || now - lastVisit > oneHour) {
+            // 最後の訪問から1時間以上経過している場合、ローディングアニメーションを表示
+            document.body.classList.add('loading');
+            loadingAnimation.style.display = 'flex';
+
+            // ローディングアニメーションを3秒後に消す
+            setTimeout(function() {
+                loadingAnimation.style.opacity = '0';
+                setTimeout(function() {
+                    loadingAnimation.style.display = 'none';
+                    document.body.classList.remove('loading');
+                }, 400); // フェードアウトの時間
+            }, 2500); // アニメーションの表示時間
+
+            // 現在の時間を保存
+            localStorage.setItem('lastVisit', now);
+        } else {
+            // すぐにコンテンツを表示
+            loadingAnimation.style.display = 'none';
+        }
+    }
+
+
+    // map関連
+    const svgMap = document.getElementById('map-container');
+
+    // SVGマップの読み込み確認
+    if (!svgMap) {
+        return;  // SVGマップがない場合、以降のコードを実行しない
+    }
+
+    const areas = svgMap.querySelectorAll('path');
+    if (areas.length === 0) {
+        return;  // パスが見つからない場合、以降のコードを実行しない
+    }
+
+    areas.forEach(function(area) {
+        area.addEventListener('click', function() {
+            // 既存の選択状態を解除
+            areas.forEach(function(a) {
+                a.classList.remove('selected');
+            });
+            // クリックされたエリアを選択状態にする
+            area.classList.add('selected');
+            const description = area.getAttribute('data-description');
+            document.getElementById('map-info-description').textContent = description
+            if(description){
+                document.getElementById('map-info-description').innerHTML = description.replace(/\n/g, '<br>');
+            }
+            document.getElementById('map-info-title').textContent = area.getAttribute('data-title');
+        });
+    });
+});
+
+
+
 //===============================================================
 // debounce関数
 //===============================================================
@@ -111,7 +174,7 @@ $('.ddmenu').on('touchstart', function(e) {
 
 
 //===============================================================
-// 小さなメニューが開いている際のみ、body要素のスクロールを禁止。
+// 小さなメニューが開いている際のみ、body要素のスクロールを禁止
 //===============================================================
 $(document).ready(function() {
   function toggleBodyScroll() {
@@ -141,7 +204,7 @@ $(document).ready(function() {
 
 
 //===============================================================
-// スムーススクロール（※バージョン2024-1）※通常タイプ
+// スムーススクロール
 //===============================================================
 $(function() {
     // ページ上部へ戻るボタンのセレクター
@@ -197,6 +260,14 @@ $(function() {
 		$('.openclose').not(this).next().slideUp();
 	});
 });
+$(function() {
+	$('.openclose-parts').next().hide();
+	$('.openclose-parts').click(function() {
+		$(this).next().slideToggle();
+		$('.openclose-parts').not(this).next().slideUp();
+	});
+});
+
 
 
 //===============================================================
@@ -225,4 +296,27 @@ $(document).ready(function () {
 
   // 初期チェック
   checkVisibility();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.list img');
+    const tooltip = document.querySelector('.tooltip');
+
+    images.forEach(image => {
+        image.addEventListener('mouseenter', function(e) {
+            tooltip.style.display = 'block';
+            tooltip.textContent = e.target.src;
+            tooltip.style.left = e.pageX + 'px';
+            tooltip.style.top = e.pageY + 'px';
+        });
+
+        image.addEventListener('mousemove', function(e) {
+            tooltip.style.left = e.pageX + 20 + 'px';
+            tooltip.style.top = e.pageY + 20 + 'px';
+        });
+
+        image.addEventListener('mouseleave', function(e) {
+            tooltip.style.display = 'none';
+        });
+    });
 });

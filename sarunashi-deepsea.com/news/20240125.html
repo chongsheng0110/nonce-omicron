@@ -6,6 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="こちらは猿梨深豬ｷ豌ｴ族館の公蠑WEBサイトです。譛ｱ隱の過度な探索はお控えください。覗き込むことの意蜻ｳ繧理解してください。">
 <link rel="stylesheet" href="css/style.css">
+<style>
+    #playButton {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+    }
+</style>
 </head>
 <body>
 
@@ -25,23 +38,42 @@
 
 <ul class="icons">
 <li><a href="https://twitter.com/sarunashi-deepsea"><i class="fa-brands fa-x-twitter"></i></a></li>
-<li><a href="https://line.me/ti/p/87F2"><i class="fab fa-line"></i></a></li>
+<li><a href="../line_add_friend.html"><i class="fab fa-line" id="black"></i></a></li>
 <li><a href="https://www.youtube.com/@SarunashiDeepsea"><i class="fab fa-youtube"></i></a></li>
-<li><a href="https://www.instagram.com/sarunashi-deepsea/"><i class="fab fa-instagram"></i></a></li>
+<li><a href="https://www.instagram.com/sarunashi-deepsea/"><i class="fab fa-instagram""></i></a></li>
 </ul>
 
 </div>
+<audio id="pageSound" src="sound.mp3" preload="auto"></audio>
+<button id="playButton"></button>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var audio = document.getElementById("pageSound");
+        var playButton = document.getElementById("playButton");
+
+        playButton.addEventListener('click', function() {
+            audio.volume=0.1
+            audio.play();
+            playButton.style.display = 'none';
+        });
+    });
+</script>
 </header>
 
 <main>
 
 
 <section id="section1" class="section">
-    <h1>お知らせ</h1>
-    <h2>webサイトを公開しました</h2>
+    <h1>イベント</h1>
+    <h2>1F0C03BB03BA03B703C303C403B903C2を終了します</h2>
     <p>
+        2024年1月5日より、猿梨深海水族館にて開催しておりました<br>
+        「イベント1F0C03BB03BA03B703C303C403B903C2」
+        は、みなさまのご協力により無事終了いたしました。<br>
+        ご来館いただいた方々には心より感謝申し上げます。<br><br>
 
+        みなさまの、またのご来館をお待ちしております。
     </p>
 </section>
 
@@ -62,7 +94,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main2.js"></script>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
