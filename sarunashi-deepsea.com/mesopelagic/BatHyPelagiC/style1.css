@@ -1,0 +1,62 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+body * {
+z-index: 20;
+color: #000;
+cursor: none;
+}
+
+p {
+    position: fixed;
+    bottom: 150px;
+    display: inline-block;
+    z-index: 30;
+}
+
+a{
+    text-decoration: none;
+}
+
+#light {
+position: absolute;
+width: 500px;
+height: 500px;
+background-color: #fff;
+z-index: 10;
+-webkit-box-shadow: inset 0px 0px 150px 166px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px 0px 150px 166px rgba(0,0,0,1);
+box-shadow: inset 0px 0px 150px 166px rgba(0,0,0,1);
+}
+
+.choice-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+}
+
+#yes-button, #no-button {
+    background-color: transparent;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+#yes-button:hover, #no-button:hover {
+    background-color: #ccc;
+}

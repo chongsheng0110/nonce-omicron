@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>状態</h1>
+        <p>鰓孔：なし</p>
+        <p>親和度：22.89</p>
+        <p>浸食度：24.19%</p>
+
+        <h1>結論</h1>
+        <p>利用方法：NONCE-OMICRON第528号</p>
+        <p>適合素材：lot12-46.2-female</p>
+
+        <h1>御礼</h1>
+        <p>ご協力ありがとうございました。おかげさまで薄まり、一周期永らえます。</p>
+        <br>
+
+        <h1>備考</h1>
+
+        <div class="files">
+            <p>鉄蟻の数をお知らせください</p>
+            <p><input type="number" min="1" max="100" /></p>
+            <br><br><br><br><br><br><br><br><br>
+            <h2>お聞きください</h2>
+            <audio id="audioPlayer" controls>
+                <source src="87F28072.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('audioPlayer').addEventListener('ended', function() {
+            window.location.href = 'zhuzhuzhuzhu/archive.html';
+        });
+    </script>
+</body>
+</html>

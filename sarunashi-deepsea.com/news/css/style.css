@@ -358,11 +358,11 @@ section {
 
 /*section3の設定*/
 #section3 {
-	background-color: rgba(100, 100, 100, 0.6);
+	background-color: rgb(0, 0, 0);
 	color: #fff;	/*文字色*/
 }
 #section3::before {
-	background: url('../images/section3.jpg') no-repeat center center / cover;	/*背景画像の読み込み*/
+	background-color: #000;
 }
 
 /*section4の設定*/
