@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const lineLink = document.querySelector('a[href="../line_add_friend.html"]');
+    const lineLink = document.querySelector('a[href="../line_add_friend"]');
     const lineIcon = lineLink.querySelector('.fa-line');
     let clickedOnce = false;
 
